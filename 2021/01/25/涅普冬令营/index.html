@@ -1,0 +1,503 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>涅普计划 | H0n9's B1og</title><meta name="keywords" content="CTF,Misc"><meta name="author" content="H0n9"><meta name="copyright" content="H0n9"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="记录Misc的入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="涅普计划">
+<meta property="og:url" content="http://h0n9.top/2021/01/25/%E6%B6%85%E6%99%AE%E5%86%AC%E4%BB%A4%E8%90%A5/index.html">
+<meta property="og:site_name" content="H0n9&#39;s B1og">
+<meta property="og:description" content="记录Misc的入门">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upimage.alexhchu.com/2021/01/25/1837d1a86c2ff.jpg">
+<meta property="article:published_time" content="2021-01-25T13:04:31.356Z">
+<meta property="article:modified_time" content="2021-02-24T06:41:02.216Z">
+<meta property="article:author" content="H0n9">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="Misc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upimage.alexhchu.com/2021/01/25/1837d1a86c2ff.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://h0n9.top/2021/01/25/%E6%B6%85%E6%99%AE%E5%86%AC%E4%BB%A4%E8%90%A5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "5485ooj7ur");</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-02-24 14:41:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = '2'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="///at.alicdn.com/t/font_2346435_ik5ajmgbxpa.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://s3.ax1x.com/2021/01/24/sbKgC4.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://upimage.alexhchu.com/2021/01/25/1837d1a86c2ff.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">H0n9's B1og</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">涅普计划</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-25T13:04:31.356Z" title="发表于 2021-01-25 21:04:31">2021-01-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-24T06:41:02.216Z" title="更新于 2021-02-24 14:41:02">2021-02-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="图片隐写的分类"><a href="#图片隐写的分类" class="headerlink" title="图片隐写的分类"></a>图片隐写的分类</h2><ul>
+<li><h3 id="右击属性"><a href="#右击属性" class="headerlink" title="右击属性"></a>右击属性</h3></li>
+<li><h3 id="文件末尾藏有字符串"><a href="#文件末尾藏有字符串" class="headerlink" title="文件末尾藏有字符串"></a>文件末尾藏有字符串</h3><p>strings 查找可打印的字符        </p>
+<p>grep使用正则表达式搜索，并输出匹配的结果</p>
+<p>file识别文件类型</p>
+</li>
+<li><h3 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h3><p>binwalk—用于查看有无文件包含</p>
+<p>foremost—分离文件，也可以使用dd命令</p>
+<p>dd if=要分离的文件名 of=分离出的文件名 bs=要读取的块数 skip=开始的位置</p>
+</li>
+<li><h3 id="修改文件头"><a href="#修改文件头" class="headerlink" title="修改文件头"></a>修改文件头</h3><p>常见的文件头和尾</p>
+<p><img src="/2021/01/25/%E6%B6%85%E6%99%AE%E5%86%AC%E4%BB%A4%E8%90%A5/1.PNG"></p>
+</li>
+<li><h3 id="GIF"><a href="#GIF" class="headerlink" title="GIF"></a>GIF</h3><p>特殊帧  —使用ps或Stegsolve</p>
+<p>帧的时间间隔</p>
+</li>
+<li><h3 id="PNG-bmp"><a href="#PNG-bmp" class="headerlink" title="PNG(bmp)"></a>PNG(bmp)</h3><p>修改宽和高：观察有无被修改宽和高，可对IHDR计算检验和，观察是否跟后面的十六进制相符</p>
+<p>zlib(010/pngcheck/binwalk -e)    zlib的隐写开头为789C</p>
+<p>lsb隐写/lsb加密(zsteg/stegsolve)</p>
+</li>
+<li><h3 id="JPG"><a href="#JPG" class="headerlink" title="JPG"></a>JPG</h3></li>
+<li><h3 id="双图隐写"><a href="#双图隐写" class="headerlink" title="双图隐写"></a>双图隐写</h3></li>
+<li><h3 id="stegpy"><a href="#stegpy" class="headerlink" title="stegpy"></a>stegpy</h3></li>
+<li><h3 id="silenteye"><a href="#silenteye" class="headerlink" title="silenteye"></a>silenteye</h3></li>
+</ul>
+<h2 id="数据编码"><a href="#数据编码" class="headerlink" title="数据编码"></a>数据编码</h2><h3 id="常见进制"><a href="#常见进制" class="headerlink" title="常见进制"></a>常见进制</h3><ul>
+<li><p>01、hex</p>
+<p>二进制转二维码，1为黑，0为白</p>
+<p>二进制转文件，将01转换为16进制，粘贴到winhex上保存</p>
+</li>
+</ul>
+<h3 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h3><ul>
+<li>Ascii、base、Morse、敲击码、二维码、shellcode</li>
+<li>Urlencode、Unicode、aaencode、jjencode、uuencode</li>
+<li>Jsfuck、brainfuck、ook！</li>
+</ul>
+<p>base36特点：密文由36个字符(0-9,a-z)组成，加密仅支持整数数字，解密仅支持字符串</p>
+<p>base58特点：不使用数字“0”，字母大写“O”，字母大写“I”，字母小写“l”，以及“+”和“/”</p>
+<p>aaencode：颜文字js加密，可以将Js代码转换成颜表情</p>
+<p>jsfuck：只有6个字符[] () ! + 来编写</p>
+<h3 id="稀奇古怪的编码"><a href="#稀奇古怪的编码" class="headerlink" title="稀奇古怪的编码"></a>稀奇古怪的编码</h3><ul>
+<li>社会主义核心价值观、与佛论禅、熊曰</li>
+</ul>
+<h2 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h2><h3 id="Wireshark的使用方法"><a href="#Wireshark的使用方法" class="headerlink" title="Wireshark的使用方法"></a>Wireshark的使用方法</h3><p>想要查看响应的数据包可以在相应的地方右键使用导出分组字节流</p>
+<p>过滤器分为显示过滤器和捕获过滤器<br>ip:    ip.src == 127.0.0.1              ip.dst == 127.0.0.1<br>mac:    eth.dst == mac地址        eth.addr == mac地址<br>port:    tcp.srcport == 80     tcp.dstport == 80     tcp.port == 80<br>长度:    udp.length == 20  筛选长度为20的udp流量包<br>http:    http.request.method == “GET”      筛选http的请求方式<br>             http.request.url == “/img”        筛选想用数据包中含有相应路径<br>             http.contains “flag”         筛选相应内容中含有相应的文本<br>还可以使用逻辑运算符and、or</p>
+<p>tshark是wireshark的命令行方式，相关命令参数可在网上查询</p>
+<h3 id="协议分析"><a href="#协议分析" class="headerlink" title="协议分析"></a>协议分析</h3><p>HTTP协议<br>一般查看流量包做了操作，上传了什么文件，保存在本地后查看</p>
+<p>HTTPS协议<br>服务端和客户端的信息传输都会通过TLS进行加密，所以传输的数据都是加密后的数据，所以得拿到密钥后导入wireshark可以看到明文的内容，但是这密钥是用公钥加密的，拿不到密钥，需要题目提供或通过其他手段才能拿到密钥</p>
+<p>USB协议<br>数据一般在leftover Capture Date中，每一个数据包的数据区有四个字节(可能是8个字节)，第一字节代表按键，当取0x00时，代表没有按键、为0x01时，代表左键，0x02时，代表右键。第二个字节可以看成是一个signed byte 类型，其最高位为符号位，值为正时，代表鼠标水平右移多少像素，为负时，代表左移多少像素。第三个字节与第二字节相似，代表上下移动<br><strong>用tshark将鼠标数据提取出</strong><br>tshark -r 流量包名 -T fields -e usb.capdata &gt; micedata</p>
+<p>键盘协议同理，可以使用脚本获得<a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">https://github.com/WangYihang/UsbKeyboardDataHacker</a></p>
+<p>WiFi协议<br>要抓取到握手包才能通过爆破获得WiFi密码</p>
+<ul>
+<li>BSSID：路由器、AP的MAC地址</li>
+<li>PWR：信号强度，越小越强</li>
+<li>Data：传输的数据大小</li>
+<li>CH：无线信道，要看准</li>
+<li>ENC：加密协议</li>
+<li>ESSID：WiFi名称</li>
+</ul>
+<p>对流量包爆破密码<br>aircrack -ng xxx.pcap -w /爆破字典的路径</p>
+<p>用密码解密流量包<br>airdecap  -ng [capfile] -e [ESSID] -p [password]</p>
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="X86汇编"><a href="#X86汇编" class="headerlink" title="X86汇编"></a>X86汇编</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>总线：用来通信，分为地址总线、数据总线、控制总线</p>
+<p>编译过程：预编译-&gt;编译-&gt;汇编-&gt;链接<br><code>gcc -E xxx.c -o xxx.i</code><br><code>gcc -s xxx.i -o xxx.s</code><br><code>gcc -c xxx.s -o xxx.o</code><br>静:<code>gcc -static xxx.o -o xxx</code><br>动:<code>gcc xxx.o -o xxx</code></p>
+<p>链接分为静态链接和动态链接，动态链接是在动态库中调用所需函数，静态链接将所需的函数代码加载在程序中</p>
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><h4 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h4><p>a-累加器<br>al：低八位     ah：高八位     ax：al和ah组合    eax：32位    rax：64位，可以存储返回值</p>
+<p>bx：常在寻址时存储基地址<br>dx：被用来存放整数除法产生的余数<br>cx：常用于控制循环次数<br>di、si：在变址寻址的时候会用到<br>bp：指向当前栈的底部<br>sp：指向当前栈的顶部</p>
+<h4 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h4><p>代码段(存储可执行代码)：cs:ip<br>数据段(程序所需数据)：ds<br>栈段(存储栈的起始基地址)：ss<br>额外段：es</p>
+<p>64位下的：FS、GS<br>不同系统用处不同，在Windows中，GS用于管理线程特定的内存<br>Linux中，GS用于访问cpu特定的内存<br>FS和GS的另一个用处canary保护</p>
+<h4 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h4><p>eflags</p>
+<table>
+<thead>
+<tr>
+<th align="left">OF</th>
+<th align="left">overflow flag</th>
+<th>溢出标志</th>
+<th>溢出标志OF用于反映有符号数加减运算所得结果是否溢出。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DF</td>
+<td align="left">direction flag</td>
+<td>方向标志</td>
+<td>控制串指令(MOVS, CMPS)。DF=1，ESI，EDI自动递减（从高地址向低地址方向处理字符串），DF=0，ESI，EDI自动递增</td>
+</tr>
+<tr>
+<td align="left">IF</td>
+<td align="left">interrupt enable flag</td>
+<td>屏蔽中断标志</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">TF</td>
+<td align="left">trap flag</td>
+<td>单步调试标志</td>
+<td>设置后执行一条指令就会被中断</td>
+</tr>
+<tr>
+<td align="left">SF</td>
+<td align="left">signal flag</td>
+<td>符号标志</td>
+<td>正负标志位，它记录相关指令执行后，结果是否为负，</td>
+</tr>
+<tr>
+<td align="left">ZF</td>
+<td align="left">zero flag</td>
+<td>零标志</td>
+<td>它记录相关指令执行后，结果是否为0；如果结果为0，zf=1，如果结果不为0，zf=0</td>
+</tr>
+<tr>
+<td align="left">AF</td>
+<td align="left">auxiliary carry flag</td>
+<td>辅助进位标志</td>
+<td>运算过程中看最后四位，不论长度为多少。最后四位向前有进位或者借位，AF=1,否则AF=0;</td>
+</tr>
+<tr>
+<td align="left">PF</td>
+<td align="left">parity flag</td>
+<td>奇偶标志</td>
+<td>运算结果中“1”的个数的奇偶性，偶数个1，PF=1，反之为0。</td>
+</tr>
+<tr>
+<td align="left">CF</td>
+<td align="left">carry flag</td>
+<td>进位标志</td>
+<td>如果运算结果的最高位产生了一个进位或借位，其值为1，否则为0。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><h4 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h4><p>加     add    add ax,bx<br>减     sub     sub ax,bx<br>乘     mul     mul ax,bx<br>除     div      div ax,bx   商存在ax，余存在dx<br>与     and     and ax,ax<br>或     or      or ax,ax<br>非     not     not ecx<br>异或     xor     xor eax,eax<br>左移    shl    逻辑左移<br>右移    shr    逻辑右移 </p>
+<h4 id="赋值指令"><a href="#赋值指令" class="headerlink" title="赋值指令"></a>赋值指令</h4><table>
+<thead>
+<tr>
+<th align="center">寄存器寻址</th>
+<th align="center">立即数寻址</th>
+<th align="center">基址变址寻址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">mov ax, 0x10</td>
+<td align="center">mov ax,0x18</td>
+<td align="center">mov [bx+di], ax</td>
+</tr>
+<tr>
+<td align="center">mov dx, 0x9</td>
+<td align="center"></td>
+<td align="center">add [bx+si], ax</td>
+</tr>
+<tr>
+<td align="center">mul dx</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h4 id="栈相关指令"><a href="#栈相关指令" class="headerlink" title="栈相关指令"></a>栈相关指令</h4><table>
+<thead>
+<tr>
+<th align="center">push</th>
+<th align="center">压栈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pop</td>
+<td align="center">弹栈</td>
+</tr>
+<tr>
+<td align="center">Pushfd</td>
+<td align="center">把eflags寄存器的内容压入栈</td>
+</tr>
+<tr>
+<td align="center">Popfd</td>
+<td align="center">把栈上的内容弹出赋值给eflags寄存器</td>
+</tr>
+<tr>
+<td align="center">Pusha</td>
+<td align="center">按照 AX、CX、DX、BX、SP（执行 PUSHA 之前的值）、BP、SI 和 DI 的顺序，将所有 16 位通用寄存器压入堆栈。</td>
+</tr>
+<tr>
+<td align="center">Popa</td>
+<td align="center">按照相反顺序将同样的寄存器弹出栈</td>
+</tr>
+</tbody></table>
+<h4 id="跳转指令"><a href="#跳转指令" class="headerlink" title="跳转指令"></a>跳转指令</h4><p>格式：cmp    目的操作数    源操作数，比较时会将目的操作数减去源操作数，根据所的得值用于跳转</p>
+<table>
+<thead>
+<tr>
+<th>汇编格式</th>
+<th>指令名称</th>
+<th>转移条件</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JC target</td>
+<td>进位转移</td>
+<td>(CF)=1</td>
+<td>有进位或借位</td>
+</tr>
+<tr>
+<td>JNC target</td>
+<td>无进位转移</td>
+<td>(CF)=0</td>
+<td>无进位或借位</td>
+</tr>
+<tr>
+<td>JE/JZ target</td>
+<td>等于或为零转移</td>
+<td>(ZF)=1</td>
+<td>相等或结果为 0</td>
+</tr>
+<tr>
+<td>JNE/JNZ target</td>
+<td>不等于或为零转移</td>
+<td>(ZF)=0</td>
+<td>不相等或结果为 0</td>
+</tr>
+<tr>
+<td>JP/JPE target</td>
+<td>奇偶校验为偶转移</td>
+<td>(PF)=1</td>
+<td>有偶数个 1</td>
+</tr>
+<tr>
+<td>JP/JPO target</td>
+<td>奇偶校验为奇转移</td>
+<td>(PF)=0</td>
+<td>有奇数个 1</td>
+</tr>
+<tr>
+<td>JS target</td>
+<td>结果为负转移</td>
+<td>(SF)=1</td>
+<td>为负数</td>
+</tr>
+<tr>
+<td>JNS target</td>
+<td>结果为正转移</td>
+<td>(SF)=0</td>
+<td>为正数</td>
+</tr>
+<tr>
+<td>JO target</td>
+<td>溢出转移</td>
+<td>(OF)=1</td>
+<td>溢出</td>
+</tr>
+<tr>
+<td>JNO target</td>
+<td>不溢出转移</td>
+<td>(OF)=0</td>
+<td>不溢出</td>
+</tr>
+<tr>
+<td>JA/JNBE target</td>
+<td>大于则转移</td>
+<td>(CF)=0 且(ZF)=0</td>
+<td>无符号数</td>
+</tr>
+<tr>
+<td>JB/JNAE target</td>
+<td>大于或等于则转移</td>
+<td>(CF)=0</td>
+<td>无符号数</td>
+</tr>
+<tr>
+<td>JB/JNAE target</td>
+<td>小于则转移</td>
+<td>(CF)=1</td>
+<td>无符号数</td>
+</tr>
+<tr>
+<td>JAE/JNB target</td>
+<td>小于或等于则转移</td>
+<td>(CF)=1 或(ZF)=1</td>
+<td>无符号数</td>
+</tr>
+<tr>
+<td>JCXZ target</td>
+<td>CX内容为0转移</td>
+<td>(CX)=0</td>
+<td></td>
+</tr>
+<tr>
+<td>JECXZ</td>
+<td>ECX内容为0转移</td>
+<td>(ECX)=0</td>
+<td></td>
+</tr>
+<tr>
+<td>JG/JNLE target</td>
+<td>大于则转移</td>
+<td>(SF)=(OF)且(ZF)=0</td>
+<td>带符号数</td>
+</tr>
+<tr>
+<td>JGE/JNL target</td>
+<td>大于或等于则转移</td>
+<td>(SF)=(OF)</td>
+<td>带符号数</td>
+</tr>
+<tr>
+<td>JL/JNGE target</td>
+<td>小于则转移</td>
+<td>(SF)≠(OF)且(ZF)=0</td>
+<td>带符号数</td>
+</tr>
+<tr>
+<td>JLE/JNG target</td>
+<td>小于或等于则转移</td>
+<td>(SF)≠(OF)或(ZF)=1</td>
+<td>带符号数</td>
+</tr>
+</tbody></table>
+<h4 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h4><p>call指令用于调用某个函数，call指令后面通常会有一个函数的地址</p>
+<p>ret指令返回时用栈中数据改IP内容,近转移<br>retf用栈中数据同时改CS,IP,远转移</p>
+<h4 id="内中断、外中断"><a href="#内中断、外中断" class="headerlink" title="内中断、外中断"></a>内中断、外中断</h4></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">H0n9</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://h0n9.top/2021/01/25/%E6%B6%85%E6%99%AE%E5%86%AC%E4%BB%A4%E8%90%A5/">http://h0n9.top/2021/01/25/%E6%B6%85%E6%99%AE%E5%86%AC%E4%BB%A4%E8%90%A5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://h0n9.top" target="_blank">H0n9's B1og</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CTF/">CTF</a><a class="post-meta__tags" href="/tags/Misc/">Misc</a></div><div class="post_share"><div class="social-share" data-image="https://upimage.alexhchu.com/2021/01/25/1837d1a86c2ff.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/25/Crypto%E6%A6%82%E8%BF%B0/"><img class="prev-cover" src="https://upimage.alexhchu.com/2021/01/25/d99352c9adc3a.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Crypto概述</div></div></a></div><div class="next-post pull-right"><a href="/2021/01/23/GXYCTF/"><img class="next-cover" src="https://upimage.alexhchu.com/2021/01/24/65b8b8e730be4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GXYCTF</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/01/28/BJDCTF/" title="BJDCTF"><img class="cover" src="https://upimage.alexhchu.com/2021/01/28/d36bb43eb46db.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-28</div><div class="title">BJDCTF</div></div></a></div><div><a href="/2021/02/03/CTF大杂烩/" title="CTF大杂烩"><img class="cover" src="https://upimage.alexhchu.com/2021/02/03/ffbe3fbe1022f.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-03</div><div class="title">CTF大杂烩</div></div></a></div><div><a href="/2021/01/25/Crypto概述/" title="Crypto概述"><img class="cover" src="https://upimage.alexhchu.com/2021/01/25/d99352c9adc3a.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-25</div><div class="title">Crypto概述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://s3.ax1x.com/2021/01/24/sbKgC4.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">H0n9</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/H-0n9"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/H-0n9" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/6171607" target="_blank" title=""><i class="iconfont icon-bilibili1"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Just Record My Life</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Misc"><span class="toc-number">1.</span> <span class="toc-text">Misc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">图片隐写的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%B3%E5%87%BB%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.1.</span> <span class="toc-text">右击属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E8%97%8F%E6%9C%89%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.2.</span> <span class="toc-text">文件末尾藏有字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="toc-number">1.1.3.</span> <span class="toc-text">文件包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-number">1.1.4.</span> <span class="toc-text">修改文件头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GIF"><span class="toc-number">1.1.5.</span> <span class="toc-text">GIF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PNG-bmp"><span class="toc-number">1.1.6.</span> <span class="toc-text">PNG(bmp)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JPG"><span class="toc-number">1.1.7.</span> <span class="toc-text">JPG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%9B%BE%E9%9A%90%E5%86%99"><span class="toc-number">1.1.8.</span> <span class="toc-text">双图隐写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stegpy"><span class="toc-number">1.1.9.</span> <span class="toc-text">stegpy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#silenteye"><span class="toc-number">1.1.10.</span> <span class="toc-text">silenteye</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">数据编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%BF%9B%E5%88%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">常见进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BC%96%E7%A0%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">常见编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%80%E5%A5%87%E5%8F%A4%E6%80%AA%E7%9A%84%E7%BC%96%E7%A0%81"><span class="toc-number">1.2.3.</span> <span class="toc-text">稀奇古怪的编码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">1.3.</span> <span class="toc-text">流量分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Wireshark%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.1.</span> <span class="toc-text">Wireshark的使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">协议分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reverse"><span class="toc-number">2.</span> <span class="toc-text">Reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#X86%E6%B1%87%E7%BC%96"><span class="toc-number">2.1.</span> <span class="toc-text">X86汇编</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">通用寄存器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">段寄存器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%BF%97%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">标志寄存器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.3.</span> <span class="toc-text">指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">运算指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">赋值指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%88%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">栈相关指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.3.4.</span> <span class="toc-text">跳转指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.3.5.</span> <span class="toc-text">调用函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E4%B8%AD%E6%96%AD%E3%80%81%E5%A4%96%E4%B8%AD%E6%96%AD"><span class="toc-number">2.1.3.6.</span> <span class="toc-text">内中断、外中断</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/09/loT%E5%AE%89%E5%85%A8/" title="loT安全"><img src="https://upimage.alexhchu.com/2021/02/09/5ba35ca4e01c6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="loT安全"/></a><div class="content"><a class="title" href="/2021/02/09/loT%E5%AE%89%E5%85%A8/" title="loT安全">loT安全</a><time datetime="2021-02-08T16:47:48.180Z" title="发表于 2021-02-09 00:47:48">2021-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/03/CTF%E5%A4%A7%E6%9D%82%E7%83%A9/" title="CTF大杂烩"><img src="https://upimage.alexhchu.com/2021/02/03/ffbe3fbe1022f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CTF大杂烩"/></a><div class="content"><a class="title" href="/2021/02/03/CTF%E5%A4%A7%E6%9D%82%E7%83%A9/" title="CTF大杂烩">CTF大杂烩</a><time datetime="2021-02-03T10:20:01.354Z" title="发表于 2021-02-03 18:20:01">2021-02-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/28/BJDCTF/" title="BJDCTF"><img src="https://upimage.alexhchu.com/2021/01/28/d36bb43eb46db.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BJDCTF"/></a><div class="content"><a class="title" href="/2021/01/28/BJDCTF/" title="BJDCTF">BJDCTF</a><time datetime="2021-01-28T04:45:05.653Z" title="发表于 2021-01-28 12:45:05">2021-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/25/Crypto%E6%A6%82%E8%BF%B0/" title="Crypto概述"><img src="https://upimage.alexhchu.com/2021/01/25/d99352c9adc3a.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Crypto概述"/></a><div class="content"><a class="title" href="/2021/01/25/Crypto%E6%A6%82%E8%BF%B0/" title="Crypto概述">Crypto概述</a><time datetime="2021-01-25T13:30:46.131Z" title="发表于 2021-01-25 21:30:46">2021-01-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/25/%E6%B6%85%E6%99%AE%E5%86%AC%E4%BB%A4%E8%90%A5/" title="涅普计划"><img src="https://upimage.alexhchu.com/2021/01/25/1837d1a86c2ff.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="涅普计划"/></a><div class="content"><a class="title" href="/2021/01/25/%E6%B6%85%E6%99%AE%E5%86%AC%E4%BB%A4%E8%90%A5/" title="涅普计划">涅普计划</a><time datetime="2021-01-25T13:04:31.356Z" title="发表于 2021-01-25 21:04:31">2021-01-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://upimage.alexhchu.com/2021/01/25/1837d1a86c2ff.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2021 By H0n9</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
